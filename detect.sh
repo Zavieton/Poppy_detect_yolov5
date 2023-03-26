@@ -1,0 +1,1 @@
+python detect.py --source ./image/mq_low_020.JPG --weights ./weights/best.pt --conf 0.25 --img-size 1280

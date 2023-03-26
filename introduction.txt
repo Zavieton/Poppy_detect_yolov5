@@ -1,0 +1,37 @@
+1. 环境配置
+1.1 python pycharm+anaconda https://zhuanlan.zhihu.com/p/36389880
+
+1.2 安装需要的package 
+>> pip -r requirements.txt
+
+1.3 (optional) cuda安装
+windows https://blog.csdn.net/Roaddd/article/details/115449155
+linux https://zhuanlan.zhihu.com/p/79059379
+
+
+
+2. 模型的推理与图像检测
+>> python inference.py
+在文件inference.py line 65，可以修改读取待检测的图像路径
+在文件inference.py line 66，可以修改检测输出的置信度
+在文件inference.py line 67，可以修改读取的模型
+
+
+
+-----以下步骤选做----
+
+3. 训练数据的添加训练 （optional 如果只是用训练好的模型推理，则跳过该步骤）
+3.1 添加训练数据至 data/plant_data/文件夹
+其中，data/plant_data/train为训练数据，data/plant_data/val为测试数据
+train/val的数据结构如下
+--train/val
+    --images
+        --xxx.jpg 图像文件
+    --labels
+        --xxx.txt 标注文件
+标注文件格式为 0 0.4859375 0.46640625 0.175 0.2234375 (参考data\plant_data\train\labels\gq_low_003.txt)
+其中分别对应检测物体的 [类别id 中心x 中心y 标注框宽 标注框高]，对应yolo标注格式，可参考 https://blog.csdn.net/weixin_43508499/article/details/118600392
+
+3.2 开始训练任务
+>> sh train.sh 
+模型默认采用yolov5-s
