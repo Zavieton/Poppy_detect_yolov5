@@ -1,0 +1,7 @@
+train: ./data/plant_data/train
+val: ./data/plant_data/val
+
+nc: 2
+
+# class names
+names: [ 'hq', 'mq']
